@@ -1,0 +1,995 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1">&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1">&lt;title&gt;Making Sense of AI — An Anthology&lt;/title&gt;</p>
+<p class="p1">&lt;link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&amp;display=swap" rel="stylesheet"&gt;</p>
+<p class="p1">&lt;style&gt;</p>
+<p class="p1">*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }</p>
+<p class="p2"><br></p>
+<p class="p1">:root {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>--sage:<span class="Apple-converted-space">        </span>#e8ede6;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>--sage-mid:<span class="Apple-converted-space">    </span>#d4ddd1;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>--sage-deep: <span class="Apple-converted-space">  </span>#9aad94;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>--cream: <span class="Apple-converted-space">      </span>#faf8f3;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>--cream-warm:<span class="Apple-converted-space">  </span>#f4f0e6;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>--stone: <span class="Apple-converted-space">      </span>#e6e0d4;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>--ink: <span class="Apple-converted-space">        </span>#1a1a1a;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>--ink-mid: <span class="Apple-converted-space">    </span>#3a3a3a;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>--ink-light: <span class="Apple-converted-space">  </span>#8a8678;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>--rust:<span class="Apple-converted-space">        </span>#8a5a3a;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>--rust-light:<span class="Apple-converted-space">  </span>#f0e6dc;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>--teal:<span class="Apple-converted-space">        </span>#3a6a68;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>--teal-light:<span class="Apple-converted-space">  </span>#e0eded;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>--plum:<span class="Apple-converted-space">        </span>#5a3a6a;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>--plum-light:<span class="Apple-converted-space">  </span>#ede0f0;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>--serif: <span class="Apple-converted-space">      </span>'Lato', system-ui, sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>--body:<span class="Apple-converted-space">        </span>'Lato', system-ui, sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>--sidebar-w: <span class="Apple-converted-space">  </span>260px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>--header-h:<span class="Apple-converted-space">    </span>180px;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">html { scroll-behavior: smooth; }</p>
+<p class="p2"><br></p>
+<p class="p1">body {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>background: var(--cream);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>color: var(--ink);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-family: var(--body);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-size: 19px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>line-height: 1.85;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">/* ── HEADER ─────────────────────────────── */</p>
+<p class="p1">.site-header {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>background: var(--sage);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>color: var(--ink);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>padding: 3rem 2.5rem 2.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>overflow: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>border-bottom: 2px solid var(--sage-mid);</p>
+<p class="p1">}</p>
+<p class="p1">.site-header::before {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>content: '';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>position: absolute;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>inset: 0;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>background: repeating-linear-gradient(</p>
+<p class="p1"><span class="Apple-converted-space">    </span>-45deg,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>transparent,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>transparent 28px,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>rgba(0,0,0,0.012) 28px,</p>
+<p class="p1"><span class="Apple-converted-space">    </span>rgba(0,0,0,0.012) 29px</p>
+<p class="p1"><span class="Apple-converted-space">  </span>);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>pointer-events: none;</p>
+<p class="p1">}</p>
+<p class="p1">.header-inner { max-width: 1100px; margin: 0 auto; position: relative; }</p>
+<p class="p1">.header-kicker {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-family: var(--body);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-size: 11px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>letter-spacing: 0.22em;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>text-transform: uppercase;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>color: var(--teal);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>margin-bottom: 0.8rem;</p>
+<p class="p1">}</p>
+<p class="p1">.header-inner h1 {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-family: var(--serif);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-size: clamp(1.8rem, 4vw, 2.8rem);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-weight: 400;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>line-height: 1.15;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>margin-bottom: 0.6rem;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>max-width: 640px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>color: var(--ink);</p>
+<p class="p1">}</p>
+<p class="p1">.header-inner h1 em {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-style: italic;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>color: var(--teal);</p>
+<p class="p1">}</p>
+<p class="p1">.header-byline {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-size: 14px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>color: var(--ink-mid);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>margin-bottom: 1.4rem;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>letter-spacing: 0.04em;</p>
+<p class="p1">}</p>
+<p class="p1">.header-byline a { color: var(--teal); text-decoration: none; }</p>
+<p class="p1">.header-byline a:hover { text-decoration: underline; }</p>
+<p class="p1">.header-desc {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-size: 17px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>color: var(--ink-mid);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>max-width: 580px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>line-height: 1.7;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>margin-bottom: 1.6rem;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-style: italic;</p>
+<p class="p1">}</p>
+<p class="p1">.header-link {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>display: inline-block;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-size: 11px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>letter-spacing: 0.12em;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>text-transform: uppercase;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>color: var(--ink);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>border: 1px solid var(--sage-deep);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>padding: 7px 18px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>text-decoration: none;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>transition: border-color 0.2s, background 0.2s;</p>
+<p class="p1">}</p>
+<p class="p1">.header-link:hover { border-color: var(--teal); background: var(--teal-light); }</p>
+<p class="p2"><br></p>
+<p class="p1">/* ── LAYOUT ─────────────────────────────── */</p>
+<p class="p1">.layout {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>max-width: 1100px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>margin: 0 auto;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>display: grid;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>grid-template-columns: var(--sidebar-w) 1fr;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>gap: 0;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>align-items: start;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>padding: 0 1.5rem;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">/* ── SIDEBAR ─────────────────────────────── */</p>
+<p class="p1">.sidebar {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>position: sticky;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>top: 2rem;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>padding: 2rem 1.5rem 2rem 0;</p>
+<p class="p1">}</p>
+<p class="p1">.sidebar-label {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-size: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>letter-spacing: 0.18em;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>text-transform: uppercase;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>color: var(--ink-light);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>margin-bottom: 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>padding-bottom: 0.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>border-bottom: 1px solid var(--stone);</p>
+<p class="p1">}</p>
+<p class="p1">.nav-list { list-style: none; }</p>
+<p class="p1">.nav-item { margin-bottom: 2px; }</p>
+<p class="p1">.nav-item a {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>display: block;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-family: var(--body);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-size: 16px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>color: var(--ink-mid);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>text-decoration: none;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>padding: 5px 10px 5px 8px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>border-left: 2px solid transparent;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>border-radius: 0 3px 3px 0;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>transition: color 0.15s, border-color 0.15s, background 0.15s;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>line-height: 1.4;</p>
+<p class="p1">}</p>
+<p class="p1">.nav-item a:hover {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>color: var(--rust);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>border-left-color: var(--rust);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>background: var(--rust-light);</p>
+<p class="p1">}</p>
+<p class="p1">.nav-item.active a {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>color: var(--rust);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>border-left-color: var(--rust);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>background: var(--rust-light);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-weight: 600;</p>
+<p class="p1">}</p>
+<p class="p1">.nav-sub {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>list-style: none;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>margin: 2px 0 4px 10px;</p>
+<p class="p1">}</p>
+<p class="p1">.nav-sub li a {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-size: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>color: var(--ink-light);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>padding: 3px 8px 3px 8px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-style: italic;</p>
+<p class="p1">}</p>
+<p class="p1">.nav-sub li a:hover {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>color: var(--teal);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>border-left-color: var(--teal);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>background: var(--teal-light);</p>
+<p class="p1">}</p>
+<p class="p1">.sidebar-footer {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>margin-top: 2rem;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>padding-top: 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>border-top: 1px solid var(--stone);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-size: 11.5px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>color: var(--ink-light);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>line-height: 1.6;</p>
+<p class="p1">}</p>
+<p class="p1">.sidebar-footer a { color: var(--rust); text-decoration: none; }</p>
+<p class="p1">.sidebar-footer a:hover { text-decoration: underline; }</p>
+<p class="p2"><br></p>
+<p class="p1">/* ── MAIN CONTENT ─────────────────────────── */</p>
+<p class="p1">.content {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>padding: 2.5rem 0 5rem 2.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>border-left: 1px solid var(--stone);</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">.preface {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>background: var(--sage);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>border: 1px solid var(--sage-mid);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>padding: 1.4rem 1.6rem;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-size: 17px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>color: var(--ink-mid);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>line-height: 1.85;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>margin-bottom: 3rem;</p>
+<p class="p1">}</p>
+<p class="p1">.preface strong { color: var(--ink); }</p>
+<p class="p1">.tag {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>display: inline-block;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-size: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>letter-spacing: 0.1em;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>text-transform: uppercase;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>padding: 2px 7px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>border-radius: 2px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>vertical-align: middle;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>top: -1px;</p>
+<p class="p1">}</p>
+<p class="p1">.tag-guest<span class="Apple-converted-space">  </span>{ background: #e4eedc; color: #3a6020; }</p>
+<p class="p1">.tag-series { background: var(--plum-light); color: var(--plum); }</p>
+<p class="p1">.tag-roundup{ background: #ede8dc; color: #6a5020; }</p>
+<p class="p2"><br></p>
+<p class="p1">/* ── SECTION ─────────────────────────────── */</p>
+<p class="p1">.section {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>margin-bottom: 3.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>padding-top: 2.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>border-top: 1px solid var(--stone);</p>
+<p class="p1">}</p>
+<p class="p1">.section:first-of-type { border-top: none; padding-top: 0; }</p>
+<p class="p2"><br></p>
+<p class="p1">.section-eyebrow {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-size: 10.5px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>letter-spacing: 0.2em;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>text-transform: uppercase;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>color: var(--ink-light);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>margin-bottom: 0.35rem;</p>
+<p class="p1">}</p>
+<p class="p1">.section h2 {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-family: var(--serif);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-size: 1.5rem;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-weight: 400;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>line-height: 1.2;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>color: var(--ink);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>margin-bottom: 0.8rem;</p>
+<p class="p1">}</p>
+<p class="p1">.section-intro {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-size: 17px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>color: var(--ink-mid);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>max-width: 600px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>line-height: 1.8;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>border-left: 3px solid var(--sage-deep);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>padding-left: 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-style: italic;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>margin-bottom: 1.5rem;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">/* ── SUBSECTION ─────────────────────────── */</p>
+<p class="p1">.subsection {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>margin-top: 2rem;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>padding-top: 1.75rem;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>border-top: 1px dashed var(--sage-mid);</p>
+<p class="p1">}</p>
+<p class="p1">.subsection:first-of-type { border-top: none; margin-top: 0.5rem; padding-top: 0; }</p>
+<p class="p1">.subsection h3 {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-family: var(--serif);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-size: 1.1rem;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-style: italic;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>color: var(--teal);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>margin-bottom: 0.4rem;</p>
+<p class="p1">}</p>
+<p class="p1">.subsection-intro {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-size: 16px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>color: var(--ink-mid);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-style: italic;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>line-height: 1.7;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>max-width: 560px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>margin-bottom: 0.5rem;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">/* ── POST LIST ───────────────────────────── */</p>
+<p class="p1">.posts { list-style: none; }</p>
+<p class="p1">.post-item {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>display: grid;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>grid-template-columns: 62px 1fr;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>gap: 0 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>padding: 0.95rem 0;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>border-bottom: 1px solid #ece8e0;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>align-items: start;</p>
+<p class="p1">}</p>
+<p class="p1">.post-item:last-child { border-bottom: none; }</p>
+<p class="p1">.post-date {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-size: 10.5px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-weight: 600;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>letter-spacing: 0.06em;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>text-transform: uppercase;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>color: var(--ink-light);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>text-align: right;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>padding-top: 3px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>line-height: 1.4;</p>
+<p class="p1">}</p>
+<p class="p1">.post-title {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-family: var(--serif);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-size: 1.05rem;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-weight: 400;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>line-height: 1.35;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>margin-bottom: 0.3rem;</p>
+<p class="p1">}</p>
+<p class="p1">.post-title a {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>color: var(--ink);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>text-decoration: none;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>transition: color 0.15s;</p>
+<p class="p1">}</p>
+<p class="p1">.post-title a:hover { color: var(--rust); }</p>
+<p class="p1">.post-note {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-size: 16px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>color: var(--ink-mid);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>line-height: 1.65;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">/* ── FOOTER ─────────────────────────────── */</p>
+<p class="p1">.site-footer {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>background: var(--ink);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>color: #8a8680;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>padding: 2rem;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>font-size: 12.5px;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>letter-spacing: 0.04em;</p>
+<p class="p1">}</p>
+<p class="p1">.site-footer a { color: var(--sage-deep); text-decoration: none; }</p>
+<p class="p1">.site-footer a:hover { text-decoration: underline; }</p>
+<p class="p2"><br></p>
+<p class="p1">/* ── RESPONSIVE ─────────────────────────── */</p>
+<p class="p1">@media (max-width: 720px) {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.layout { grid-template-columns: 1fr; padding: 0 1rem; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.sidebar { position: static; padding: 1.5rem 0 0; border-right: none; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.content { padding: 2rem 0; border-left: none; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.post-item { grid-template-columns: 1fr; }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>.post-date { text-align: left; margin-bottom: 0.2rem; }</p>
+<p class="p1">}</p>
+<p class="p1">&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;header class="site-header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="header-inner"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="header-kicker"&gt;Making Science Public&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1&gt;Making Sense of AI:&lt;br&gt;&lt;em&gt;An Anthology&lt;/em&gt;&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p class="header-byline"&gt;Language, metaphor and public understanding &amp;nbsp;·&amp;nbsp; &lt;a href="https://www.nottingham.ac.uk/sociology/people/brigitte.nerlich" target="_blank"&gt;Brigitte Nerlich, University of Nottingham&lt;/a&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;p class="header-desc"&gt;Over ten years, between May 2016 and June 2026, some 60 blog posts on AI and metaphor — from recording emerging metaphors to discussing their impacts on science and society. Sorted here by theme for easier reading.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;a href="https://makingsciencepublic.com/tag/ai/" class="header-link" target="_blank"&gt;Browse all AI posts ↗&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;div class="layout"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- SIDEBAR --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;aside class="sidebar"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="sidebar-label"&gt;Sections&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;ul class="nav-list"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li class="nav-item"&gt;&lt;a href="#s1"&gt;1. Origins &amp;amp; Early Encounters&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li class="nav-item"&gt;&lt;a href="#s2"&gt;2. Metaphors: The Core Thread&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;ul class="nav-sub"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li&gt;&lt;a href="#s2a"&gt;↳ Think about AI&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li&gt;&lt;a href="#s2b"&gt;↳ Build AI&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li&gt;&lt;a href="#s2c"&gt;↳ Thinking with AIs&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li class="nav-item"&gt;&lt;a href="#s3"&gt;3. Language, Words &amp;amp; Meaning&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li class="nav-item"&gt;&lt;a href="#s4"&gt;4. AI Meets Biology&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li class="nav-item"&gt;&lt;a href="#s5"&gt;5. AI in Society &amp;amp; Culture&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li class="nav-item"&gt;&lt;a href="#s6"&gt;6. Ethics, Safety &amp;amp; Governance&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;li class="nav-item"&gt;&lt;a href="#s7"&gt;7. Overviews &amp;amp; Reflections&lt;/a&gt;&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="sidebar-footer"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>All posts by &lt;a href="https://makingsciencepublic.com/about/" target="_blank"&gt;Brigitte Nerlich&lt;/a&gt; unless noted&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;a href="https://makingsciencepublic.com" target="_blank"&gt;Making Science Public&lt;/a&gt;&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;span style="color:#c0bbb2"&gt;Compiled June 2026&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/aside&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- MAIN CONTENT --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;main class="content"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="preface"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;strong&gt;How to use this guide.&lt;/strong&gt; Posts are grouped by theme rather than chronology. Within each section, entries are ordered to build on one another where possible. Each post stands alone, but readers interested in the core metaphor thread are encouraged to start with Section 2 and read it through. Posts marked &lt;span class="tag tag-guest"&gt;guest&lt;/span&gt; were written by invited contributors. Posts marked &lt;span class="tag tag-series"&gt;series&lt;/span&gt; form a trilogy or sequence. Annual round-ups are marked &lt;span class="tag tag-roundup"&gt;round-up&lt;/span&gt;.</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- S1 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="section" id="s1"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="section-eyebrow"&gt;Section One&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;Origins and Early Encounters&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="section-intro"&gt;The blog's engagement with AI did not begin in 2023 with ChatGPT. These posts show a longer view — from early algorithmic unease in 2016 through to the first encounter with generative AI and the curiosity it sparked.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;ul class="posts"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-date"&gt;May 2016&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2016/05/15/62511/" target="_blank"&gt;The ghost in the machine: Of automation, algorithms and AI&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-note"&gt;An early post asking what it means when machines do things we cannot fully explain. Written before generative AI was a household concern, but the 'ghost in the machine' metaphor already does important work here.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-date"&gt;Sep 2018&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2018/09/14/anticipating-public-reactions-to-emerging-sciences-and-technologies-nano-synbio-and-ai/" target="_blank"&gt;Anticipating public reactions to emerging sciences and technologies: Nano, synbio and AI&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-note"&gt;Drawing on experience with nanotechnology and synthetic biology engagement, this post asks whether we can anticipate how publics will react to AI and what lessons earlier controversies offer.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-date"&gt;Sep 2020&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2020/09/02/mutant-algorithms" target="_blank"&gt;Mutant algorithms&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-note"&gt;This post deals with early anxieties about automating decision-making in the grading of A-level assessments, exacerbated by Boris Johnson's use of the phrase 'mutant algorithm'.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-date"&gt;Dec 2021&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2021/12/10/ai-and-the-public-understanding-of-science/" target="_blank"&gt;AI and the (public) understanding of science&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-note"&gt;Prompted by a wave of AI-generated artwork, this post begins asking what AI means for how science is communicated and understood.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-date"&gt;Jan 2023&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2023/01/06/artificial-intelligence-education-and-entertainment/" target="_blank"&gt;Artificial Intelligence: Education and entertainment&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-note"&gt;The blog's first post in the ChatGPT era. It asks what the new wave of generative AI might mean for education, communication and daily intellectual life, with early reflections on the dangers of 'knowledge pollution'.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-date"&gt;Feb 2025&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2025/02/11/when-the-world-falls-apart-enjoy-a-metaphor/" target="_blank"&gt;When the world falls apart, enjoy a metaphor!&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-note"&gt;A reflective post on why metaphor-watching has become a personal as well as intellectual refuge, and how AI became central to that project.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- S2 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="section" id="s2"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="section-eyebrow"&gt;Section Two&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;Metaphors: The Core Thread&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="section-intro"&gt;The core of the blog's AI coverage: a sustained, evolving investigation into how metaphors shape what we think AI is, can do, and should do. Posts are sorted thematically then chronologically. The three sub-themes below are not watertight — many posts straddle more than one — but they offer a useful orientation.&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="subsection" id="s2a"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3&gt;Metaphors we use to think about AI&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="subsection-intro"&gt;These posts study the metaphors that circulate in public and media discourse — in journalism, social media, general commentary — and shape how non-specialists imagine what AI is and what it means.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;ul class="posts"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-date"&gt;Apr 2024&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2024/04/12/hunting-for-ai-metaphors/" target="_blank"&gt;Hunting for AI metaphors&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="post-note"&gt;A systematic foray into the metaphor landscape: collecting, sorting and analysing the metaphors that writers, technologists and commentators use to make AI legible.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-date"&gt;Aug 2024&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2024/08/30/ai-llms-and-an-explosion-of-metaphors/" target="_blank"&gt;AI, LLMs and an explosion of metaphors&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="post-note"&gt;As AI discourse intensified, so did its metaphor density. This post surveys the proliferation and asks: what does it mean when a technology attracts so many different imaginative frameworks at once?&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-date"&gt;Jan 2025&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2025/01/03/food-for-thought-ai-and-culinary-metaphors/" target="_blank"&gt;Food for thought: AI and culinary metaphors&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="post-note"&gt;A thematic study of food and digestion as metaphors for AI — training data as food, models as consumers, outputs as produce, and more.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-date"&gt;Jan 2026&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2026/01/02/from-sloppers-to-slopocalypse-the-lexical-productivity-of-ai-slop/" target="_blank"&gt;From sloppers to slopocalypse: The lexical productivity of AI slop&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="post-note"&gt;A close analysis of 'slop', the word that crystallised anxieties about low-quality AI-generated content, and its remarkable semantic fertility. Companion to the enshittification post in Section 3.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-date"&gt;Feb 2026&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2026/02/06/metaphors-for-ai-networks-holes-and-loops/" target="_blank"&gt;Metaphors for AI: Networks, holes and loops&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="post-note"&gt;A reflection on the epistemological role of metaphor itself — nets cast over AI to produce provisional understanding — and what happens when they fray.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-date"&gt;Feb 2026&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2026/02/27/making-and-unmaking-ai-metaphors-and-magic/" target="_blank"&gt;Making and unmaking AI metaphors and magic&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="post-note"&gt;Revisiting a classic paper by Noel and Amanda Sharkey on AI and natural magic, showing how AI has always invited magical thinking, and what it costs us when we indulge it.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-date"&gt;Apr 2026&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2026/04/05/is-cultural-technology-a-metaphor-for-ai/" target="_blank"&gt;Is 'cultural technology' a metaphor for AI?&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="post-note"&gt;Prompted by John Naughton's &lt;em&gt;Observer&lt;/em&gt; piece on ten AI metaphors, this post examines whether 'cultural technology' — a more neutral, anthropological framing — offers something useful.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-date"&gt;Apr 2026&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2026/04/10/habsburg-ai-portrait-of-a-metaphor-and-its-family/" target="_blank"&gt;'Habsburg AI': Portrait of a metaphor and its family&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="post-note"&gt;Tracing the genealogy of a single viral metaphor, 'Habsburg AI', and what it reveals about how critical AI discourse is conducted.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-date"&gt;Nov 2025&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2025/11/30/metaphors-for-ai-three-blog-posts-and-a-summary/" target="_blank"&gt;Metaphors for AI: Three blog posts and a summary&lt;/a&gt; &lt;span class="tag tag-series"&gt;series&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="post-note"&gt;A short overview and entry point for the trilogy below.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-date"&gt;Nov 2025&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2025/11/14/making-the-case-for-an-ai-metaphor-observatory/" target="_blank"&gt;Making the case for an AI metaphor observatory&lt;/a&gt; &lt;span class="tag tag-series"&gt;series&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="post-note"&gt;A programmatic statement about why metaphor-watching needs to become systematic, collective and institutionalised. Part one of a research trilogy.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-date"&gt;Nov 2025&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2025/11/21/ai-metaphor-studies-an-overview/" target="_blank"&gt;Metaphors for AI: An overview of recent studies&lt;/a&gt; &lt;span class="tag tag-series"&gt;series&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="post-note"&gt;A survey of the academic landscape: what topics scholars were working on with regard to AI metaphors (up to 2025), and where the gaps remain. Part two of the trilogy.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-date"&gt;Nov 2025&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2025/11/28/observing-shifts-in-metaphors-for-ai-what-changed-and-why-it-matters/" target="_blank"&gt;Observing shifts in metaphors for AI: What changed and why it matters&lt;/a&gt; &lt;span class="tag tag-series"&gt;series&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="post-note"&gt;Tracking how the metaphors used for AI have shifted since 2022 and arguing for the significance of those shifts for public understanding. Part three of the trilogy.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-date"&gt;Apr 2026&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2026/04/03/ai-through-a-bilingual-lens-metaphors-in-italian-and-english/" target="_blank"&gt;AI through a bilingual lens: Metaphors in Italian and English&lt;/a&gt; &lt;span class="tag tag-guest"&gt;guest&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="post-note"&gt;By Barbara Gabriella Renzi and Giulio Napolitano. A comparative study showing that AI metaphors are not universal and that language and culture shape the imaginative frameworks available to us.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="subsection" id="s2b"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3&gt;Metaphors we use to build AI&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="subsection-intro"&gt;Metaphors that originate inside the technical practice of AI — used by researchers, engineers and developers to describe, design and reason about AI systems. These often cross over into public discourse, carrying their technical assumptions with them.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;ul class="posts"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-date"&gt;Apr 2024&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2024/04/19/from-contamination-to-collapse-on-the-trail-of-a-new-ai-metaphor/" target="_blank"&gt;From contamination to collapse: On the trail of a new AI metaphor&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="post-note"&gt;Tracing the emergence of 'model collapse' and related contamination metaphors — showing how a technical concept becomes culturally loaded through the language used to describe it.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-date"&gt;Jun 2024&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2024/06/28/metaphor-identification-from-manual-to-automatic/" target="_blank"&gt;Metaphor identification: From manual to automatic&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="post-note"&gt;A technical look at how metaphors have been identified, from manual to automatic analysis, and from Lakoff and Johnson in the 1980s to the use of LLMs via natural language processing and computational linguistics.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-date"&gt;Mar 2026&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2026/03/20/metaphors-ais-live-by/" target="_blank"&gt;Metaphors AIs live by&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="post-note"&gt;Not just what metaphors humans use for AI, but what metaphors AI models deploy internally. An intriguing look at the metaphorical furniture built into the systems themselves.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-date"&gt;Apr 2026&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2026/04/17/sandboxes-and-moats-wrestling-with-ai-metaphors/" target="_blank"&gt;Sandboxes and moats: Wrestling with AI metaphors&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="post-note"&gt;Two field-internal metaphors examined for what they reveal about how AI developers frame safety and strategy: 'sandbox' (a safe testing environment) and 'moat' (a competitive advantage).&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-date"&gt;Apr 2026&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2026/04/03/vibe-coding-spaghetti-unpacking-an-ai-metaphor-for-biology/" target="_blank"&gt;Vibe-coding spaghetti: Unpacking an AI metaphor for biology&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="post-note"&gt;Sparked by a viral tweet claiming that 'DNA is 4 billion year old, completely undocumented, vibe-coded spaghetti', this post unpacks how AI developer vocabulary is being borrowed to re-describe biology itself. (Links to Section 4)&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="subsection" id="s2c"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3&gt;Thinking with AIs about metaphors&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="subsection-intro"&gt;A distinctive strand in which AI systems become active participants in metaphor analysis — not just objects of analysis but interlocutors. These posts raise interesting questions about what it means to ask a machine about its own language.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;ul class="posts"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-date"&gt;Mar 2023&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2023/03/31/chatting-with-a-chatbot-about-metaphor/" target="_blank"&gt;Chatting with a chatbot about metaphor&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="post-note"&gt;An early (and quite amusing) chat with ChatGPT about the nature, creation and processing of metaphors, including reflections on pattern recognition.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-date"&gt;Oct 2023&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2023/10/27/chatgpt-and-its-magical-metaphors/" target="_blank"&gt;ChatGPT and its magical metaphors&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="post-note"&gt;A discussion with ChatGPT about the metaphors it would use to describe itself — which revealed a striking tendency towards magical metaphors.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-date"&gt;Jul 2024&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2024/07/12/talking-with-claude-about-machine-metaphors-in-biology/" target="_blank"&gt;Talking with Claude about machine metaphors in biology&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="post-note"&gt;Using Claude to explore how machine metaphors operate in biology, asking what an AI makes of the metaphors used to describe processes that AI itself is now being used to model. (See also Section 4)&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-date"&gt;Feb 2026&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2026/02/13/moltbook-snapshots-of-a-metaphorical-firework/" target="_blank"&gt;Moltbook: Snapshots of a metaphorical firework&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">              </span>&lt;div class="post-note"&gt;A snapshot of the metaphor explosion that greeted Moltbook, a social network for AIs — capturing in miniature how quickly and wildly metaphors multiply around AI novelties, with AI as both subject and occasional commentator.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- S3 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="section" id="s3"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="section-eyebrow"&gt;Section Three&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;Language, Words and Meaning&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="section-intro"&gt;Beyond metaphor, these posts dig into specific words, linguistic phenomena, and the relationship between how we talk about AI and how we think about it. Polysemy, prompts, neologisms and the politics of naming.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;ul class="posts"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-date"&gt;Jan 2023&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2023/01/13/artificial-intelligence-dark-matter-and-common-sense/" target="_blank"&gt;Artificial intelligence, dark matter and common sense&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-note"&gt;A dissection of the quite unique metaphor of 'common sense as the dark matter of AI', including a discussion with ChatGPT about that metaphor (and a mistake it makes).&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-date"&gt;Oct 2023&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2023/10/20/frontier-ai-tracing-the-origin-of-a-concept/" target="_blank"&gt;Frontier AI: Tracing the origin of a concept&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-note"&gt;Around the first AI safety summit there was a lot of talk of 'frontier' models. But what does that word actually mean and imply for AI risks and safety?&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-date"&gt;Nov 2023&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2023/11/03/super-intelligence-and-supercomputers-when-frontiers-collide/" target="_blank"&gt;Super-computers and super-intelligence: When frontiers collide&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-note"&gt;A collaboration with Alan Miguel Valdez exploring the concept of 'frontier' further and linking it to the myth of the US frontier.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-date"&gt;Feb 2024&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2024/02/02/truth-post-truth-and-post-fake/" target="_blank"&gt;Truth, post-truth, and post-fake&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-note"&gt;What happens to truth and the language of truth when AI can generate plausible-sounding falsehoods at scale? An examination of a vocabulary under pressure.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-date"&gt;Jun 2024&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2024/06/21/how-to-do-things-with-prompts-magic-words-speech-acts-and-ai/" target="_blank"&gt;How to do things with prompts: Magic words, speech acts and AI&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-note"&gt;Drawing on J. L. Austin's speech act theory, this post asks what prompts actually do and why the language of 'magic words' is both apt and revealing about how we imagine our relationship with AI.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-date"&gt;Sep 2024&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2024/09/27/intelligence/" target="_blank"&gt;Intelligence&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-note"&gt;A meditation on the word 'intelligence' itself, whose endless meanings make precise definition both necessary and elusive.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-date"&gt;Aug 2025&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2025/08/01/vibes-from-new-age-to-new-algorithms/" target="_blank"&gt;Vibes: From new age to new algorithms&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-note"&gt;The curious career of 'vibes', from spiritual informality to 'vibe-coding', used as a case study to trace how vernacular words get drafted into technical AI discourse.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-date"&gt;Oct 2025&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2025/10/17/enshittification-a-word-for-our-times/" target="_blank"&gt;Enshittification: A word for our times&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-note"&gt;A linguistic autopsy of one of the era's most distinctive coinages — tracing its origin, spread and meaning, and what it tells us about collective anxieties around platform and AI degradation. (See also 'slop' in Section 2)&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-date"&gt;Jan 2026&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2026/01/30/ai-veganism-a-new-dietary-metaphor-for-a-new-type-of-discourse/" target="_blank"&gt;AI veganism: A new dietary metaphor for a new type of discourse&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-note"&gt;The emergence of 'AI vegan' — meaning someone who refuses AI-generated content on ethical grounds — as a window into how moral identities are being constructed around AI choices.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-date"&gt;May 2026&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2026/05/22/fake-from-murky-origins-to-murky-future/" target="_blank"&gt;'Fake': From murky origins to murky future&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-note"&gt;A companion to the post on truth and post-truth, tracing the word 'fake' from its murky origins in 18th-century criminal slang, through 'fake news' and 'deepfakes', to the current crisis of reality in the age of generative AI.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-date"&gt;May 2026&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2026/05/08/polysemy-power-and-ethics-in-ai-discourse/" target="_blank"&gt;Polysemy, power and ethics in AI discourse&lt;/a&gt; &lt;span class="tag tag-series"&gt;series&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-note"&gt;Introducing a key paper on 'strategic polysemy' — the deliberate exploitation of multiple meanings in AI discourse for purposes of hype and power. Part one of a sequence.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-date"&gt;May 2026&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2026/05/15/polysemy-safety-and-epistemic-risks-in-ai-discourse/" target="_blank"&gt;Polysemy, safety and epistemic risks in AI discourse&lt;/a&gt; &lt;span class="tag tag-series"&gt;series&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-note"&gt;Extending the polysemy analysis to AI safety discourse, showing how the same word can mean radically different things to different actors, with real consequences for governance. Part two.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-date"&gt;May 2026&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2026/05/29/ai-literacy-and-the-case-for-polysemy-awareness/" target="_blank"&gt;AI literacy and the case for polysemy awareness&lt;/a&gt; &lt;span class="tag tag-series"&gt;series&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-note"&gt;Making the case that polysemy literacy — awareness of how multiple meanings of AI concepts emerge and are used — should be a core component of AI literacy education. Part three.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-date"&gt;Jun 2026&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2026/06/05/polysemy-pragmatics-and-puppetry-what-ai-can-learn-from-ethnomethodology/" target="_blank"&gt;Polysemy, pragmatics and puppetry: What AI can learn from ethnomethodology&lt;/a&gt; &lt;span class="tag tag-series"&gt;series&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-note"&gt;The final post in the polysemy series, going back to the 1970s to explore how an expert in the study of social interaction foresaw the pitfalls of AI systems. Part four.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- S4 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="section" id="s4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="section-eyebrow"&gt;Section Four&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;AI Meets Biology&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="section-intro"&gt;A thread drawing on long experience in studying the language of genetics and genomics. What happens when the vocabularies of molecular biology and AI begin to borrow from each other?&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;ul class="posts"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-date"&gt;Oct 2023&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2023/10/06/the-language-of-life-meets-large-language-models/" target="_blank"&gt;The language of life meets large language models&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-note"&gt;A first exploration of the convergence between DNA-as-language metaphors and LLM terminology — both intellectually productive and conceptually treacherous.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-date"&gt;Jul 2024&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2024/07/26/llms-meaning-and-maths/" target="_blank"&gt;Large language models, meaning and maths&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-note"&gt;Inspired by Benjamin Labatut's novels on mathematics and science, this post asks deep questions about meaning in LLMs and whether mathematical structure can bear the weight we place on it.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-date"&gt;Aug 2024&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2024/08/09/from-large-language-models-to-dna-language-models/" target="_blank"&gt;From large language models to DNA language models&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-note"&gt;As researchers began applying LLM architectures to genomic sequences, the metaphor of 'DNA language models' raised profound questions about meaning, translation and what it means to 'understand' a genome.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-date"&gt;Jan 2025&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2025/01/17/synthetic-biology-in-the-era-of-ai-from-dominating-nature-to-collaborating-with-it/" target="_blank"&gt;Synthetic biology in the era of AI: From dominating nature to collaborating with it&lt;/a&gt; &lt;span class="tag tag-guest"&gt;guest&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-note"&gt;By Christian Gude. A synthetic biologist asks how AI is changing the field's self-understanding and whether the controlling metaphors of synthetic biology are shifting as a result.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-date"&gt;Dec 2024&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2024/12/13/chatting-with-a-cockroach-a-bonus-post/" target="_blank"&gt;Chatting with a cockroach&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-note"&gt;A playful post on chatting with a cockroach through the medium of AI at the Cambridge Museum of Zoology, and the implications this may have for science communication.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-date"&gt;Mar 2026&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2026/03/13/metaphors-in-ai-and-genomics-going-beyond-blueprints-and-parrots/" target="_blank"&gt;Metaphors in AI and genomics: Going beyond blueprints and parrots&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-note"&gt;A synthesis comparing the history of metaphor in genetics (blueprints, codes, programmes) with the current metaphor ecology of AI (parrots, assistants, minds) to draw lessons about communication and risk.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- S5 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="section" id="s5"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="section-eyebrow"&gt;Section Five&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;AI in Society and Culture&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="section-intro"&gt;How AI is being absorbed into culture, identity and everyday life — from the social dynamics of AI-model naming to what AI chatbots do to our sense of relationship and truth.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;ul class="posts"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-date"&gt;Apr 2023&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2023/04/21/llamas-alpacas-and-dolly-2-0-exploring-an-emerging-ai-menagerie/" target="_blank"&gt;LLaMas, Alpacas and Dolly 2.0: Exploring an emerging AI menagerie&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-note"&gt;The naming of AI models as animals — llamas, alpacas, falcons — as a cultural phenomenon. What does this metaphor family tell us about how the field sees itself?&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-date"&gt;Aug 2023&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2023/08/25/red-and-blue-ai/" target="_blank"&gt;Red and blue AI?&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-note"&gt;An experimental and speculative post drawing an analogy between the political polarisation of GM crops and the emerging cultural divisions around AI.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-date"&gt;Dec 2023&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2023/12/29/climate-change-metaphors-and-me/" target="_blank"&gt;Climate change, metaphors and me&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-note"&gt;A personal and methodological reflection linking earlier work on climate change communication to the new project on AI, showing the continuity of concerns beneath different subject matters.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-date"&gt;Jan 2024&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2024/01/19/humanising-artificial-intelligence-and-dehumanising-actual-intelligence/" target="_blank"&gt;Humanising artificial intelligence and dehumanising actual intelligence&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-note"&gt;An analysis of the double movement in AI discourse: as we project human qualities onto machines, we risk diminishing what is genuinely human.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-date"&gt;Oct 2024&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2024/10/04/superintelligence-from-the-divine-to-the-digital-and-back-again/" target="_blank"&gt;Superintelligence: From the divine to the digital and back again&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-note"&gt;Tracing 'superintelligence' from its theological roots to Sam Altman's recent pronouncements, showing how this concept carries far older anxieties about the creation of something beyond our control.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-date"&gt;Oct 2024&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2024/10/11/playing-with-ai-playing-with-fire/" target="_blank"&gt;Playing with AI / Playing with fire&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-note"&gt;Reflecting on the word 'playing' — how the playfulness of early AI interactions conceals real dangers, and how the experimental framing both enables and disguises what we are doing.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-date"&gt;Nov 2024&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2024/11/15/chatting-with-chatbots-about-the-climate-crisis/" target="_blank"&gt;Chatting with chatbots about the climate crisis&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-note"&gt;An experiment in using AI to discuss climate change, asking what AI-mediated conversation reveals about how we think and feel about a vast and difficult subject.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-date"&gt;Sep 2025&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2025/09/05/understanding-computational-hermeneutics-making-meaning-between-the-past-and-the-present/" target="_blank"&gt;Understanding computational hermeneutics: Making meaning between the past and the present&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-note"&gt;Engaging with a complex paper on 'computational hermeneutics' (and with Gadamer and Dilthey), this philosophical post asks whether interpretation and understanding are things AI can genuinely do.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-date"&gt;Nov 2025&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2025/11/23/parasocial-relationships-problematic-practice-or-public-promise/" target="_blank"&gt;Parasocial Relationships: Problematic Practice or Public Promise?&lt;/a&gt; &lt;span class="tag tag-guest"&gt;guest&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-note"&gt;By Andrew Maynard. On 'parasocial' becoming Cambridge Dictionary's 2025 Word of the Year, and what it means that our growing attachments to AI chatbots have a name.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- S6 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="section" id="s6"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="section-eyebrow"&gt;Section Six&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;Ethics, Safety and Governance&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="section-intro"&gt;How AI risk, responsibility and regulation are being imagined, argued over and framed. These posts engage with the policy and ethics debates directly, through the lens of language and public understanding.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;ul class="posts"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-date"&gt;May 2023&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2023/05/08/bridge-or-barrier-does-generative-ai-contribute-to-more-culturally-inclusive-higher-education-and-research/" target="_blank"&gt;Bridge or Barrier: Does generative AI contribute to more culturally inclusive higher education and research?&lt;/a&gt; &lt;span class="tag tag-guest"&gt;guest&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-note"&gt;By Dimitrinka Atanasova. An early examination of whether AI tools help or harm researchers from non-Anglophone backgrounds — a practical equity question often absent from mainstream AI ethics discourse.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-date"&gt;Jun 2023&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2023/06/15/artificial-intelligence-and-existential-risk-from-alarm-to-alignment/" target="_blank"&gt;Artificial intelligence and existential risk: From alarm to alignment&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-note"&gt;A critical examination of the 'existential risk' framing: how the term functions rhetorically, what it closes down as well as opens up, and the journey from alarm to the more procedural language of 'alignment'.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-date"&gt;Nov 2023&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2023/11/17/the-human-side-of-ai-delivery-robots-in-milton-keynes/" target="_blank"&gt;The human side of AI: Delivery robots in Milton Keynes&lt;/a&gt; &lt;span class="tag tag-guest"&gt;guest&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-note"&gt;By Alan Miguel Valdez. Against the backdrop of the Bletchley Park AI Safety Summit, this post brings AI back to the pavement level — literal robots, actual communities, and what governance means on the ground.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-date"&gt;Feb 2024&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2024/02/10/responsible-ai-to-the-max-meet-goody-2/" target="_blank"&gt;Responsible AI to the max: Meet Goody-2&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-note"&gt;On Goody-2, the satirical AI that refused every request on safety grounds — a humorous intervention in the responsible-AI debate that reveals its contradictions from the inside.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-date"&gt;May 2024&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2024/05/24/ai-safety-its-everywhere-but-what-is-it/" target="_blank"&gt;AI safety: It's everywhere but what is it?&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-note"&gt;Surveying the rapid proliferation of 'AI safety' as a term and asking — quite urgently — what it actually means across its very different uses.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-date"&gt;Jun 2025&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2025/06/13/public-engagement-with-ai-some-obstacles-and-paradoxes/" target="_blank"&gt;Public engagement with AI: Some obstacles and paradoxes&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-note"&gt;Reporting on a social-science webinar on what AI researchers say about public reception of AI, examining the tensions between institutional engagement rhetoric and actual practice.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-date"&gt;Aug 2025&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2025/08/29/ai-winter-and-ai-bubble-historical-and-metaphorical-reflections/" target="_blank"&gt;AI winter and AI bubble: Historical and metaphorical reflections&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-note"&gt;Looking at the history of AI hype cycles through two salient metaphors — 'winter' and 'bubble' — and asking what they tell us about whether the current moment is different, or the same old story.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-date"&gt;Sep 2025&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2025/09/19/participation-at-the-core-ai-elsi-and-community-engagement/" target="_blank"&gt;Participation at the core: AI, ELSI and community engagement&lt;/a&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-note"&gt;Engaging with Alondra Nelson's proposal to apply the genomics ELSI framework to AI, reflecting on technology governance, engagement and public participation.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- S7 --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;section class="section" id="s7"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="section-eyebrow"&gt;Section Seven&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;Annual Overviews and Reflections&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="section-intro"&gt;Each year the blog produces a round-up of all posts written during that year. Together they form a record of how AI (and the blog's engagement with it) has evolved.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;ul class="posts"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-date"&gt;Dec 2023&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2023/12/15/making-science-public-2023-end-of-year-round-up-of-blog-posts/" target="_blank"&gt;Making Science Public 2023: End-of-year round-up&lt;/a&gt; &lt;span class="tag tag-roundup"&gt;round-up&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-note"&gt;The year AI became something we could all use and were all talking about. A useful map of the blog's first intensive year of AI coverage.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-date"&gt;Dec 2024&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2024/12/06/making-science-public-2024-end-of-year-round-up-of-blog-posts/" target="_blank"&gt;Making Science Public 2024: End-of-year round-up&lt;/a&gt; &lt;span class="tag tag-roundup"&gt;round-up&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-note"&gt;A year in which the metaphor project deepened and the AI-and-biology thread emerged strongly. Also covers non-AI posts for readers interested in the broader scope of the blog.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;li class="post-item"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-date"&gt;Dec 2025&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="post-body"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-title"&gt;&lt;a href="https://makingsciencepublic.com/2025/12/12/making-science-public-2025-end-of-year-round-up-of-blog-posts/" target="_blank"&gt;Making Science Public 2025: End-of-year round-up&lt;/a&gt; &lt;span class="tag tag-roundup"&gt;round-up&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="post-note"&gt;The year of the metaphor observatory trilogy, enshittification, vibes, AI veganism, and a blog migration.&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/li&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/ul&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/main&gt;</p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;footer class="site-footer"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;p&gt;All posts by &lt;a href="https://makingsciencepublic.com/about/" target="_blank"&gt;Brigitte Nerlich&lt;/a&gt; unless otherwise noted &amp;nbsp;·&amp;nbsp; &lt;a href="https://makingsciencepublic.com" target="_blank"&gt;Making Science Public&lt;/a&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;p style="margin-top: 6px; color: #6a6660;"&gt;Reading guide compiled June 2026&lt;/p&gt;</p>
+<p class="p1">&lt;/footer&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;script&gt;</p>
+<p class="p1">// Highlight active sidebar link on scroll</p>
+<p class="p1">const sections = document.querySelectorAll('section[id], .subsection[id]');</p>
+<p class="p1">const navLinks = document.querySelectorAll('.nav-list a, .nav-sub a');</p>
+<p class="p1">const observer = new IntersectionObserver((entries) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>entries.forEach(entry =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (entry.isIntersecting) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>navLinks.forEach(link =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>link.parentElement.classList.remove('active');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (link.getAttribute('href') === '#' + entry.target.id) {</p>
+<p class="p1"><span class="Apple-converted-space">          </span>link.parentElement.classList.add('active');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">      </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>});</p>
+<p class="p1">}, { rootMargin: '-20% 0px -70% 0px' });</p>
+<p class="p1">sections.forEach(s =&gt; observer.observe(s));</p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
